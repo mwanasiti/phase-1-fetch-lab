@@ -1,7 +1,58 @@
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
+  fetch("https://anapioficeandfire.com/api/books")
+  .then(resp=>resp.json())
+  .then(data=>bookName(data))
   
 }
+function bookName(books){
+  books.forEach(book => {
+    let li=document.createElement("li")
+    let sp=document.createElement("span").innerHTML=book.numberOfPages
+    
+    // li.innerHTML=book.authors
+    li.append(sp)
+    document.getElementById("list").appendChild(li)
+    console.log(book.numberOfPages)
+    
+
+
+  });
+  console.log(books)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function renderBooks(books) {
   const main = document.querySelector('main');
